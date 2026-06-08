@@ -1,0 +1,281 @@
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;براء ❤️&lt;/title&gt;
+</code></pre>
+<pre><code class="language-html">&lt;style&gt;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffe6ee,#fff2e6);
+position:relative;
+}
+
+.card{
+background:white;
+width:370px;
+padding:30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+position:relative;
+z-index:10;
+}
+
+.cat{
+width:190px;
+margin-bottom:15px;
+}
+
+h1{
+color:#ff4f7d;
+font-size:34px;
+margin-bottom:20px;
+}
+
+.counter{
+color:#777;
+margin-bottom:20px;
+font-size:16px;
+}
+
+.buttons{
+position:relative;
+height:120px;
+}
+
+button{
+border:none;
+padding:14px 30px;
+border-radius:25px;
+font-size:22px;
+cursor:pointer;
+transition:.25s;
+}
+
+.yes{
+background:#ff4f7d;
+color:white;
+box-shadow:0 8px 20px rgba(255,79,125,.4);
+}
+
+.no{
+background:#ddd;
+position:absolute;
+right:70px;
+top:0;
+}
+
+.heart{
+position:fixed;
+pointer-events:none;
+animation:float 5s linear forwards;
+z-index:999;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+
+100%{
+transform:translateY(-900px) scale(1.8);
+opacity:0;
+}
+
+}
+
+#finalScreen{
+display:none;
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#ffd9e7,#fff0e8);
+z-index:9999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+}
+
+#finalScreen h1{
+font-size:80px;
+}
+
+#finalScreen h2{
+font-size:45px;
+color:#ff4f7d;
+margin-top:10px;
+}
+
+#finalScreen p{
+font-size:24px;
+margin-top:15px;
+color:#444;
+}
+
+&lt;/style&gt;
+</code></pre>
+<pre><code class="language-html">&lt;/head&gt;
+</code></pre>
+<pre><code class="language-html">&lt;body&gt;
+</code></pre>
+<pre><code class="language-html"><i>&lt;!-- موسيقى الموافقة --&gt;</i>
+</code></pre>
+<pre><code class="language-html">&lt;audio id=&quot;success&quot;&gt;
+&lt;source src=&quot;success.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+</code></pre>
+<pre><code class="language-html"><i>&lt;!-- صوت هروب زر لا --&gt;</i>
+</code></pre>
+<pre><code class="language-html">&lt;audio id=&quot;pop&quot;&gt;
+&lt;source src=&quot;pop.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+&lt;/audio&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;card&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;h1&gt;براء تحبني لو لا؟ ❤️&lt;/h1&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;counter&quot;&gt;
+عدد محاولات الضغط على لا:
+&lt;span id=&quot;count&quot;&gt;0&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;buttons&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;button class=&quot;yes&quot; onclick=&quot;acceptLove()&quot;&gt;
+إي ❤️
+&lt;/button&gt;
+</code></pre>
+<pre><code class="language-html">&lt;button class=&quot;no&quot; id=&quot;noBtn&quot;&gt;
+لا
+&lt;/button&gt;
+</code></pre>
+<pre><code class="language-html">&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div id=&quot;finalScreen&quot;&gt;
+</code></pre>
+<pre><code class="language-html">&lt;h1&gt;❤️❤️❤️&lt;/h1&gt;
+</code></pre>
+<pre><code class="language-html">&lt;h2&gt;براء وافقت 🎉&lt;/h2&gt;
+</code></pre>
+<pre><code class="language-html">&lt;p&gt;
+كنت أعرف من البداية 😎❤️
+&lt;/p&gt;
+</code></pre>
+<pre><code class="language-html">&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;script&gt;
+
+const noBtn = document.getElementById(&quot;noBtn&quot;);
+const counter = document.getElementById(&quot;count&quot;);
+const yesBtn = document.querySelector(&quot;.yes&quot;);
+
+let tries = 0;
+let yesScale = 1;
+
+function moveButton(){
+
+tries++;
+
+counter.textContent = tries;
+
+document.getElementById(&quot;pop&quot;).play();
+
+const x = Math.random() * (window.innerWidth - 140);
+const y = Math.random() * (window.innerHeight - 90);
+
+noBtn.style.position = &quot;fixed&quot;;
+noBtn.style.left = x + &quot;px&quot;;
+noBtn.style.top = y + &quot;px&quot;;
+
+yesScale += 0.12;
+
+yesBtn.style.transform =
+`scale(${yesScale})`;
+
+if(tries &gt; 8){
+noBtn.textContent = &quot;مستحيل 😂&quot;;
+}
+
+if(tries &gt; 16){
+noBtn.textContent = &quot;استسلم 😭&quot;;
+}
+
+if(tries &gt; 25){
+noBtn.textContent = &quot;إضغط إي وخلاص 😅&quot;;
+}
+
+}
+
+noBtn.addEventListener(&quot;mouseover&quot;, moveButton);
+noBtn.addEventListener(&quot;click&quot;, moveButton);
+
+function acceptLove(){
+
+document.getElementById(&quot;success&quot;).play();
+
+document.getElementById(&quot;finalScreen&quot;).style.display = &quot;flex&quot;;
+
+for(let i=0;i&lt;300;i++){
+
+setTimeout(createHeart, i*40);
+
+}
+
+}
+
+function createHeart(){
+
+const heart = document.createElement(&quot;div&quot;);
+
+heart.className = &quot;heart&quot;;
+
+heart.innerHTML = [&quot;❤️&quot;,&quot;💖&quot;,&quot;💕&quot;,&quot;💘&quot;,&quot;💝&quot;][Math.floor(Math.random()*5)];
+
+heart.style.left =
+Math.random()*window.innerWidth + &quot;px&quot;;
+
+heart.style.bottom = &quot;-50px&quot;;
+
+heart.style.fontSize =
+(20 + Math.random()*50) + &quot;px&quot;;
+
+document.body.appendChild(heart);
+
+setTimeout(()=&gt;{
+heart.remove();
+},5000);
+
+}
+
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-html">&lt;/body&gt;
+</code></pre>
+
+</body>
+</html>
